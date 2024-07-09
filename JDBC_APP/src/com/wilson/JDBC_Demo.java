@@ -9,12 +9,12 @@ public class JDBC_Demo {
 
 		System.out.println("Hello JDBC");
 
-		oracle.jdbc.driver.OracleDriver ot = new oracle.jdbc.driver.OracleDriver();
+		oracle.jdbc.driver.OracleDriver ot = new oracle.jdbc.driver.OracleDriver(); //Creating Oracle Driver
 
 		try {
 			DriverManager.registerDriver(ot); // Activating JDBC Driver
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
