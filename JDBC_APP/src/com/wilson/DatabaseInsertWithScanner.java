@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
-public class JDBC_Test {
+public class DatabaseInsertWithScanner {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-
-		// Registering jdbc driver with driver manager service
+		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 
 		// getting connection object from driverManager
@@ -21,9 +21,15 @@ public class JDBC_Test {
 
 			// Creating statement obj for passing sql query to db
 			Statement st = con.createStatement();
+			
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter the id");
+			int id = sc.nextInt();
+			System.out.println("Enter the name");
+			String name = sc.next();
 
-			// String selectquery = "select * from Amgaon";
-			String insertQuery = "insert into Amgaon values(2, 'Ruchira')";
+			
+			String insertQuery = "insert into Amgaon values("+id+", '"+name+"')";
 
 			boolean execute = st.execute(insertQuery);
 			if (execute) {
